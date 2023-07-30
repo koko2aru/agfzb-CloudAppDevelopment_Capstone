@@ -6,6 +6,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
     <body>
+        <nab class="navbar bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class=navbar-brand" href="#">Best Cars dealership</a>
+                <a class="navbar-link" href="{% url 'djangoapp:about' %}">About us</a>
+                <a class="navbar-link" href="{% url 'djangoapp:contact' %}">Contact us</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+                    <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a class="btn btn-link" href="{% url 'djangoapp:login' %}">Login</a>
+                    <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nab>
         <form action="{% url 'djangoapp:registration' %}" method="post">
             <div class="container">
                 {% csrf_token %}
