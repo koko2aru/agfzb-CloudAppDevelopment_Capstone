@@ -49,7 +49,7 @@ def registration_request(request):
     context = {}
     if request.method == 'GET':
         return render(request, 'djangoapp/login.html', context)
-    elif request.method == 'PPST':
+    elif request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user_exist = False
