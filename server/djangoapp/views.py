@@ -37,7 +37,7 @@ def login_request(request):
             context['message'] = "Invalid username or password "
             return render(request, 'djangoapp/login.html', context)
     else:
-        return render(request, 'djsngoapp/login.html', context)
+        return render(request, 'djangoapp/login.html', context)
 
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
@@ -48,8 +48,8 @@ def logout_request(request):
 def registration_request(request):
     context = {}
     if request.method == 'GET':
-        return render(request, 'djangoapp/login.html', context)
-    elif request.method == 'POST':
+        return render(request, 'djangoapp/registration.html', context)
+    if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user_exist = False
@@ -65,7 +65,6 @@ def registration_request(request):
             else:
                 context['message'] = "User already exists!"
                 return render(request, 'djangoapp/registration.html', context)
-        
     else:
         return render(request, 'djangoapp/registration.html', context)
         
@@ -79,10 +78,10 @@ def get_dealerships(request):
 
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
-# def get_dealer_details(request, dealer_id):
-# ...
+def get_dealer_details(request, dealer_id):
+    
 
 # Create a `add_review` view to submit a review
-# def add_review(request, dealer_id):
-# ...
+def add_review(request, dealer_id):
+    
 
