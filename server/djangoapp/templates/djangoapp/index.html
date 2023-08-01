@@ -19,7 +19,7 @@
     <nab class="navbar bg-light">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class=navbar-brand" href="#">Dealership Review</a>
+                <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Dealership Review</a>
                 <a class="navbar-link" href="{% url 'djangoapp:about' %}">About us</a>
                 <a class="navbar-link" href="{% url 'djangoapp:contact' %}">Contact us</a>
             </div>
@@ -40,7 +40,6 @@
                             <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
                         </div>
                     </form>
-                    <a class="btn btn-link" href="{% url 'djangoapp:login' %}">Login</a>
                 </li>
                 {% endif %}
             </ul>
@@ -49,7 +48,7 @@
 
     <!--Add a dealer table here -->
     <footer>
-      <p>Copy right © 2023 Best Cars dealership<a href="{% url 'djangoapp:contact' %}>contact</a></p>
+      <p>Copy right © 2023 Best Cars dealership  <a href="{% url 'djangoapp:contact' %}">contact</a></p>
     </footer>
     </body>
 
