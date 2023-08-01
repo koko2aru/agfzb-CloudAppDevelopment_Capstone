@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     {% load static %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Login page</title>
 </head>
     <body>
         <nab class="navbar bg-light">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class=navbar-brand" href="#">Best Cars dealership</a>
+                <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Dealership Review</a>
                 <a class="navbar-link" href="{% url 'djangoapp:about' %}">About us</a>
                 <a class="navbar-link" href="{% url 'djangoapp:contact' %}">Contact us</a>
             </div>
