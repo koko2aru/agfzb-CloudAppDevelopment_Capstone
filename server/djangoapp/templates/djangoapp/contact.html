@@ -13,7 +13,7 @@
     <nab class="navbar bg-light">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Best Cars dealership</a>
+                <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Dealership Review</a>
                 <a class="navbar-link" href="{% url 'djangoapp:about' %}">About us</a>
                 <a class="navbar-link" href="{% url 'djangoapp:contact' %}">Contact us</a>
             </div>
@@ -39,12 +39,13 @@
             </ul>
         </div>
     </nab>
-      <h1>About us</h1>
+    <div class="container">
+      <h1>Contact us</h1>
       <p>Address: California</p>
       <p>Telephone: 000000</p>
+    </div>
     <footer>
-      <p>Copy right © 2023 Best Cars dealership<a href="{% url 'djangoapp:contact' %}>contact</a></p>
+      <p>Copy right © 2023 Best Cars dealership  <a href="{% url 'djangoapp:contact' %}">contact</a></p>
     </footer>
     </body>
-
 </html>
