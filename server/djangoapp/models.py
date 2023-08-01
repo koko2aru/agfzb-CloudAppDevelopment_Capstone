@@ -2,8 +2,6 @@ from django.db import models
 from django.utils.timezone import now
 
 
-# Create your models here.
-
 class CarMake(models.Model):
     name = models.CharField(null=False, max_length=50)
     description = models.CharField(max_length=1000)
@@ -19,11 +17,7 @@ class CarModel(models.Model):
     SEDAN = 'Sedan'
     SUV = 'suv'
     WAGON = 'wagon'
-    CAR_TYPE = [
-    (SEDAN, 'Sedan'),
-    (SUV, 'suv'),
-    (WAGON, 'wagon')
-    ]
+    CAR_TYPE = [(SEDAN, 'Sedan'),(SUV, 'suv'),(WAGON, 'wagon')]
     type = models.CharField(max_length=5, choices=CAR_TYPE, default=SEDAN)
     year = models.DateDield(default=now)
     
