@@ -19,7 +19,7 @@ class CarModel(models.Model):
     WAGON = 'wagon'
     CAR_TYPE = [(SEDAN, 'Sedan'),(SUV, 'suv'),(WAGON, 'wagon')]
     type = models.CharField(max_length=5, choices=CAR_TYPE, default=SEDAN)
-    year = models.DateDield(default=now)
+    year = models.DateField(default=now)
     
     def __str__(self):
         return "Name: " + self.name + "," + \
