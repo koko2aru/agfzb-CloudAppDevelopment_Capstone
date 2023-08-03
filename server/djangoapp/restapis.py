@@ -26,6 +26,8 @@ def get_request(url, **kwargs):
 class post_request(url, json_payload, **kwargs):
     if request.method == "POST":
         response = requests.post(url, params=kwargs, json=json_payload)
+        
+        return status
 
 
 # Create a get_dealers_from_cf method to get dealers from a cloud function
