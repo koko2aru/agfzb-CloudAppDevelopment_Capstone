@@ -90,8 +90,8 @@ def get_dealer_details(request, dealer_id):
         return HttpResponse(review_contents)
         
         
-
-# Create a `add_review` view to submit a review
-#def add_review(request, dealer_id):
+def add_review(request, dealer_id):
+    user = request.user
+    if user authenticated:
     
 
