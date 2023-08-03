@@ -62,21 +62,21 @@ def get_dealer_by_id_from_cf(url, dealer_id):
         for review in reviews:
             review_doc = review["doc"]
             review_obj = DealerView(dealership = review_doc["dealership"], name = review_doc["name"], purchase = review_doc["purchase"], review = review_doc["review"], purchase_date = review_doc["purchase_date"], car_make = review_doc["car_make"], car_model = review_doc["car_model"], sentiment = review_doc["sentiment"], id = review_doc["id"])
-            review_obj.sentiment = analyze_review_sentiments(review_obj.review)
+            #review_obj.sentiment = analyze_review_sentiments(review_obj.review)
             results.append(review_obj.sentiment)
     return results
 
 
 # Create an `analyze_review_sentiments` method to call Watson NLU and analyze text
-def analyze_review_sentiments(text):
-  params = dict()
-  params["text"] = kwargs["text"]
-  params["version"] = kwargs["version"]
-  params["features"] = kwargs["features"]
-  params["return_analyzed_text"] = kwargs["return_analyzed_text"]
-  response = requests.get(url, params=params, headers={'Content-Type': 'application/json'},auth=HTTPBasicAuth('apikey', api_key))
+#def analyze_review_sentiments(text):
+  #params = dict()
+  #params["text"] = kwargs["text"]
+  #params["version"] = kwargs["version"]
+  #params["features"] = kwargs["features"]
+  #params["return_analyzed_text"] = kwargs["return_analyzed_text"]
+  #response = requests.get(url, params=params, headers={'Content-Type': 'application/json'},auth=HTTPBasicAuth('apikey', api_key))
 
-    
+ 
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
 
