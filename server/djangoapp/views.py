@@ -85,9 +85,9 @@ def get_dealerships(request):
 def get_dealer_details(request, dealer_id):
     if request.method == "GET":
         url = "your-cloud-function-domain/dealership-package/get-review"
-        reviews = get_dealer_by_id_from_cf(url, dealer_id)
-        review_contents= ' '.join([review.de for review in reviews])
-        return HttpResponse(dealer_names)
+        results = get_dealer_by_id_from_cf(url, dealer_id)
+        review_contents= ' '.join([result.review for result in results])
+        return HttpResponse(review_contents)
         
         
 
