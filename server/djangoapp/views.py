@@ -95,7 +95,7 @@ def add_review(request, dealer_id):
     context = {}
     if user.is_authentificated:
         if request.method == "GET":
-            return render(request, 'djangoapp/add.html', context)
+            return render(request, 'djangoapp/add_review.html', context)
         elif request.method == "POST":
             json_payload = {}
             json_payload["review"] = review
