@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
 # from .models import related models
-from .restapis import get_dealers_cf, get_dealer_by_id_from_cf
+from .restapis import get_dealers_cf, get_dealer_by_id_from_cf, post_request
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from datetime import datetime
@@ -103,6 +103,8 @@ def add_review(request, dealer_id):
             review["dealership"] = dealer_id
             review["review"] = request.POST['review']
             review["purchase"] = request.POST['purchase']
+            url = "your-cloud-function-domain/dealership-package/add-review"
+            post_request(url, json_payload, dealer_id)
             
             
     
