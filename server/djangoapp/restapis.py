@@ -23,7 +23,7 @@ def get_request(url, **kwargs):
     json_data = json.loads(response.text)
     return json_data
 
-class post_request(url, json_payload, **kwargs):
+def post_request(url, json_payload, **kwargs):
     if request.method == "POST":
         response = requests.post(url, params=kwargs, json=json_payload)
         
