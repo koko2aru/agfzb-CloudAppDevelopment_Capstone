@@ -1,6 +1,6 @@
 import requests
 import json
-from .models import CarDealer, DealerView
+from .models import CarDealer, DealerReview
 from requests.auth import HTTPBasicAuth
 
 
@@ -64,7 +64,7 @@ def get_dealer_by_id_from_cf(url, dealer_id):
         
         for review in reviews:
             review_doc = review["doc"]
-            review_obj = DealerView(dealership = review_doc["dealership"], name = review_doc["name"], purchase = review_doc["purchase"], review = review_doc["review"], purchase_date = review_doc["purchase_date"], car_make = review_doc["car_make"], car_model = review_doc["car_model"], sentiment = review_doc["sentiment"], id = review_doc["id"])
+            review_obj = DealerReview(dealership = review_doc["dealership"], name = review_doc["name"], purchase = review_doc["purchase"], review = review_doc["review"], purchase_date = review_doc["purchase_date"], car_make = review_doc["car_make"], car_model = review_doc["car_model"], sentiment = review_doc["sentiment"], id = review_doc["id"])
             #review_obj.sentiment = analyze_review_sentiments(review_obj.review)
             results.append(review_obj.sentiment)
     return results
