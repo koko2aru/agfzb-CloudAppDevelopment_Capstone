@@ -109,6 +109,6 @@ def add_review(request, dealer_id):
             return redirect(reverse('djangoapp:get_details', dealer_id)
     else:
     context = "Invalid user"
-    return render(request, 'djangoapp/get_detail.html', context)
+    return render(request, 'djangoapp/get_details.html', context)
     
 
