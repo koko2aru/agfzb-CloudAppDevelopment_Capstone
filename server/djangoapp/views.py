@@ -108,7 +108,7 @@ def get_dealer_details(request, dealer_id):
 #             review["purchase"] = request.POST['purchase']
 #             url = "your-cloud-function-domain/dealership-package/add-review"
 #             post_request(url, json_payload, dealer_id)
-#             return redirect(reverse(viewname='djangoapp:get_details', args=(dealer_id)))
+#             return redirect("djangoapp:dealer_details", dealer_id=dealer_id)
 #     else:
 #         context = "Invalid user"
 #         return render(request, 'djangoapp/get_details.html', context)
