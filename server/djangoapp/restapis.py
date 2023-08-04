@@ -11,23 +11,20 @@ def get_request(url, **kwargs):
     try:
         # Call get method of requests library with URL and parameters
         if apikey:
-            response = requests.get(url, params=params, headers={'Content-Type': 'application/json'}, auth=HTTPBasicAuth('apikey', api_key))
+            response = requests.get(url, params=kwargs, headers={'Content-Type': 'application/json'}, auth=HTTPBasicAuth('apikey', api_key))
         else:
-            response = requests.get(url, params=params, headers={'Content-Type': 'application/json'})
+            response = requests.get(url, params=kwargs, headers={'Content-Type': 'application/json'})
     except:
         # If any error occurs
         print("Network exception occurred")
-    
     status_code = response.status_code
     print("With status {} ".format(status_code))
     json_data = json.loads(response.text)
     return json_data
 
 def post_request(url, json_payload, **kwargs):
-    if request.method == "POST":
-        response = requests.post(url, params=kwargs, json=json_payload)
-        
-        return status
+    response = requests.post(url, params=kwargs, json=json_payload)
+    return response
 
 
 # Create a get_dealers_from_cf method to get dealers from a cloud function
@@ -58,15 +55,15 @@ def get_dealers_from_cf(url, **kwargs):
 def get_dealer_by_id_from_cf(url, dealer_id):
     results = []
     
-    json_result = get_request(url, dealership=dealer_id)
+    json_result = get_request(url, dealer_id)
     if json_result:
         reviews = json_result["rows"]
         
         for review in reviews:
             review_doc = review["doc"]
-            review_obj = DealerReview(dealership = review_doc["dealership"], name = review_doc["name"], purchase = review_doc["purchase"], review = review_doc["review"], purchase_date = review_doc["purchase_date"], car_make = review_doc["car_make"], car_model = review_doc["car_model"], sentiment = review_doc["sentiment"], id = review_doc["id"])
+            review_obj = DealerReview(dealership = review_doc["dealership"], name = review_doc["name"], purchase = review_doc["purchase"], review = review_doc["review"], purchase_date = review_doc["purchase_date"], car_make = review_doc["car_make"], car_model = review_doc["car_model"], car_year = review_doc["car_year"], sentiment = review_doc["sentiment"], id = review_doc["id"])
             #review_obj.sentiment = analyze_review_sentiments(review_obj.review)
-            results.append(review_obj.sentiment)
+            results.append(review_obj)
     return results
 
 
@@ -79,9 +76,5 @@ def get_dealer_by_id_from_cf(url, dealer_id):
   #params["return_analyzed_text"] = kwargs["return_analyzed_text"]
   #response = requests.get(url, params=params, headers={'Content-Type': 'application/json'},auth=HTTPBasicAuth('apikey', api_key))
 
- 
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
-
-
-
